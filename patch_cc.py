@@ -7,6 +7,10 @@ extra = os.environ["NIX_CFLAGS_COMPILE"].split()
 fallback = pathlib.Path("build/compile_commands.json")
 arg_path = sys.argv[1] if len(sys.argv) > 1 else None
 path = pathlib.Path(arg_path) if arg_path else fallback
+
+if not path.exists():
+    sys.exit(1)
+
 db   = json.loads(path.read_text())
 
 def add_missing(existing: list[str]) -> list[str]:

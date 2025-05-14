@@ -3,13 +3,13 @@
 Make your **`compile_commands.json`** tell the *whole* truth when you build
 C/C++ projects inside a Nix development shell.
 
-> **TL;DR**  
-> Nix compiler-wrappers silently inject  
-> `-isystem /nix/store/…/include` flags.  
-> The build succeeds, but those flags never reach *clangd*, *ccls*, *cpp-tools*
-> … so your editor shows *false* “cannot find header” errors.  
-> This tool adds the same flags back into the compile database **after the
-> build** so every LSP sees the correct include paths.
+ **TLDR**  
+- Nix compiler-wrappers silently inject  
+- `-isystem /nix/store/…/include` flags.  
+- The build succeeds, but those flags never reach *clangd*, *ccls*, *cpp-tools*
+- … so your editor shows *false* “cannot find header” errors.  
+- This tool adds the same flags back into the compile database **after the
+- build** so every LSP sees the correct include paths.
 
 ---
 
